@@ -7,6 +7,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 const Article = require("./models/articleSchema");
+const User = require("./models/UserSchema");
 const mongoose = require("mongoose");
 
 
@@ -27,8 +28,8 @@ liveReloadServer.server.once("connection", () => {
 
 // mongoose
 
-
-mongoose.connect(
+mongoose
+  .connect(
     "mongodb+srv://ammar:alibrahim@cluster0.51i7rk6.mongodb.net/?retryWrites=true&w=majority"
   )
   .then((result) => {
@@ -45,13 +46,9 @@ app.get("/", (req, res) => {
   res.redirect("/home");
 });
 
-
 app.get("/home", (req, res) => {
-  res.render("index");
+  res.render("home");
 });
-
-
-
 
 app.post("/home", (req, res) => {
   // form verilerinin alınması
@@ -61,26 +58,88 @@ app.post("/home", (req, res) => {
   const order = new Article({ title, summary, number, shoesname, body });
 
   // veri nesnesinin veritabanına kaydedilmesi
-  order.save()
-    .then(() => {
-      // kayıt başarılı ise /home sayfasına yönlendirme
-      res.redirect("/home");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+
+
+  order
+  .save()
+  .then(() => {
+    User.find()
+      .then((result) => {
+        res.render("home");
+      })
+      .catch((err) => { 
+        console.log(err);
+      });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+
 });
-
-
 
 app.get("/all-shoes", (req, res) => {
   res.render("all-shoes");
 });
 
 
-app.get("/nike-jordan", (req, res) => {
-  res.render("nike-jordan");
+
+app.get("/user", (req, res) => {
+  res.render("user");
 });
+
+
+
+
+
+
+
+// Signup Route
+app.get("/signup", (req, res) => {
+  res.render("signup");
+  });
+  
+  app.post("/signup", (req, res) => {
+    const { username, email, password } = req.body;
+    User.create({ username, email, password })
+    .then((user) => {
+    res.render("user", { user });
+    })
+    .catch((err) => {
+    console.log(err);
+    });
+    });
+  
+  // Login Route
+  app.get("/login", (req, res) => {
+  res.render("login");
+  });
+  
+  app.post("/login", (req, res) => {
+    const { email, password } = req.body;
+    User.findOne({ email, password })
+    .then((user) => {
+    if (user) {
+    res.render("user", { user });
+    } else {
+    res.render("login", { message: "Kullanıcı adı veya şifre yanlış" });
+    }
+    })
+    .catch((err) => {
+    console.log(err);
+    });
+    });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
