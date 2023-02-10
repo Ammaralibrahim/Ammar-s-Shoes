@@ -3,6 +3,7 @@
 const express = require("express");
 const app = express();
 const port = 5000;
+const helmet = require("helmet");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -45,7 +46,7 @@ mongoose
     "mongodb+srv://ammar:alibrahim@cluster0.51i7rk6.mongodb.net/?retryWrites=true&w=majority"
   )
   .then((result) => {
-    app.listen(port, () => {
+    app.listen(process.env.PORT || port, () => {
       console.log(`Example app listening at http://localhost:${port}`);
     });
   })
@@ -53,6 +54,10 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+
+app.use(helmet());
+
 
   app.get("/", (req, res) => {
     res.redirect("/home");
@@ -72,7 +77,7 @@ mongoose
     // veri nesnesinin veritabanına kaydedilmesi
     article.save()
       .then(() => {
-        res.redirect("/all-shoes");
+        res.redirect("/home");
       })
       .catch((err) => {
         console.error(err);
