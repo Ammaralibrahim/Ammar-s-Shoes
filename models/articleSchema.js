@@ -17,7 +17,7 @@ const articleSchema = new mongoose.Schema(  {
 
 
   // Create a model based on that schema
-const Article = mongoose.model("Article", articleSchema);
+const Article = mongoose.model("Orders", articleSchema);
   
 
 
