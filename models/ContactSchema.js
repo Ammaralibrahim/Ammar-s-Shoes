@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 
 // define the Schema (the structure of the article)
-const articleSchema = new mongoose.Schema(  {
+const contactSchema = new mongoose.Schema(  {
 
     title: String,
     summary: String,
@@ -17,10 +17,10 @@ const articleSchema = new mongoose.Schema(  {
 
 
   // Create a model based on that schema
-const Article = mongoose.model("Orders", articleSchema);
+const Contact = mongoose.model("Contact us", contactSchema);
   
 
 
 
 // export the model
-module.exports = Article;
+module.exports = Contact;

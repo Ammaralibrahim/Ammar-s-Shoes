@@ -5,7 +5,7 @@
     <meta name="description" content="Ammar's Shoes offers a wide range of stylish and comfortable footwear for men and women. Browse our collection today and step up your style game.">
     <!-- font awesome cdn link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  
+
   <!-- custom css file link  -->
   <link rel="stylesheet" href="style.css">
   
@@ -42,10 +42,21 @@
           <a href="#Man">Man</a>
           <a href="#Women">Women</a>
           <a href="#order">Order</a>
-          <a href="#orders" class="orders">
-            <i class="fas fa-shopping-cart"></i>  Siparişler 
-            <span class="order-count">0</span>
-          </a>
+         
+
+
+          
+          <div class="dropdown">
+            <button class="dropdown-button">
+                <a href="#" class="login1"><i class="fas fa-shopping-basket"></i> My basket</a>
+            </button>
+            <div class="dropdown-content">
+              <a href="#">Username:  <%= user.username %></a>
+              <a href="#">Email:  <%= user.email %></a>
+              <a href="/logout">Sign out</a>
+            </div>
+          </div>   
+         
         
           <div class="dropdown">
             <button class="dropdown-button">
@@ -54,8 +65,7 @@
             <div class="dropdown-content">
               <a href="#">Username:  <%= user.username %></a>
               <a href="#">Email:  <%= user.email %></a>
-              <a href="#">Password:  <%= user.password %></a>
-              <a href="/home">Sign out</a>
+              <a href="/logout">Sign out</a>
             </div>
           </div>      
         </div>
@@ -77,7 +87,7 @@
             Made with the finest materials, our shoes are not only comfortable and durable,
             but also offer a stylish look for everyday wear
           </p>
-          <a href="#" class="creat">order now</a>
+          <a href="#" class="creat">Find your Shoes</a>
         </div>
   
         <div class="image">
@@ -96,7 +106,7 @@
           <div class="box">
             <img class="image" src="images/shoes1.png" alt="">
             <div class="content">
-              <img src="images/s-2.png" alt="">
+              <img src="" alt="">
               <h3>Nike</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
@@ -108,7 +118,7 @@
           <div class="box">
             <img class="image" src="images/shoes2.png" alt="">
             <div class="content">
-              <img src="images/s-2.png" alt="">
+              <img src="" alt="">
               <h3>nike</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
@@ -120,7 +130,7 @@
           <div class="box">
             <img class="image" src="images/shoes3.png" alt="">
             <div class="content">
-              <img src="images/s-3.png" alt="">
+              <img src="" alt="">
               <h3>Reebok</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
@@ -176,7 +186,7 @@
               <i class="fas fa-star"></i>
               <i class="far fa-star"></i>
             </div>
-            <a href="#" class="creat">order now</a>
+            <a href="#" class="creat">Add to Cart</a>
           </div>
           <div class="box">
             <span class="price">$26</span>
@@ -189,7 +199,7 @@
               <i class="fas fa-star"></i>
               <i class="far fa-star"></i>
             </div>
-            <a href="#" class="creat">order now</a>
+            <a href="#" class="creat">Add to Cart</a>
           </div>
           <div class="box">
             <span class="price">$20 </span>
@@ -202,7 +212,7 @@
               <i class="fas fa-star"></i>
               <i class="far fa-star"></i>
             </div>
-            <a href="#" class="creat">order now</a>
+            <a href="#" class="creat">Add to Cart</a>
           </div>
           <div class="box">
             <span class="price">$20 </span>
@@ -215,7 +225,7 @@
               <i class="fas fa-star"></i>
               <i class="far fa-star"></i>
             </div>
-            <a href="#" class="creat">order now</a>
+            <a href="#" class="creat">Add to Cart</a>
           </div>
           <div class="box">
             <span class="price">$20</span>
@@ -228,7 +238,7 @@
               <i class="fas fa-star"></i>
               <i class="far fa-star"></i>
             </div>
-            <a href="#" class="creat">order now</a>
+            <a href="#" class="creat">Add to Cart</a>
           </div>
           
         </div>
@@ -277,7 +287,7 @@
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Deleniti, ipsum.
               </p>
-              <a href="#" class="creat">Order now</a>
+              <a href="#" class="creat">Add to Cart</a>
             </div>
           </div>
           <div class="box">
@@ -288,7 +298,7 @@
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Deleniti, ipsum.
               </p>
-              <a href="#" class="creat">Order now</a>
+              <a href="#" class="creat">Add to Cart</a>
             </div>
           </div>
           <div class="box">
@@ -299,7 +309,7 @@
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Deleniti, ipsum.
               </p>
-              <a href="#" class="creat">Order now</a>
+              <a href="#" class="creat">Add to Cart</a>
             </div>
           </div>
           <div class="box">
@@ -310,7 +320,7 @@
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Deleniti, ipsum.
               </p>
-              <a href="#" class="creat">Order now</a>
+              <a href="#" class="creat">Add to Cart</a>
             </div>
           </div>
           <div class="box">
@@ -321,7 +331,7 @@
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Deleniti, ipsum.
               </p>
-              <a href="#" class="creat">Order now</a>
+              <a href="#" class="creat">Add to Cart</a>
             </div>
           </div>
         </div>  
@@ -339,7 +349,7 @@
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Deleniti, ipsum.
               </p>
-              <a href="#" class="creat">Order now</a>
+              <a href="#" class="creat">Add to Cart</a>
             </div>
           </div>
           <div class="box">
@@ -350,7 +360,7 @@
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Deleniti, ipsum.
               </p>
-              <a href="#" class="creat">Order now</a>
+              <a href="#" class="creat">Add to Cart</a>
             </div>
           </div>
           <div class="box">
@@ -361,7 +371,7 @@
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Deleniti, ipsum.
               </p>
-              <a href="#" class="creat">Order now</a>
+              <a href="#" class="creat">Add to Cart</a>
             </div>
           </div>
           <div class="box">
@@ -372,7 +382,7 @@
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Deleniti, ipsum.
               </p>
-              <a href="#" class="creat">Order now</a>
+              <a href="#" class="creat">Add to Cart</a>
             </div>
           </div>
           <div class="box">
@@ -383,7 +393,7 @@
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                 Deleniti, ipsum.
               </p>
-              <a href="#" class="creat">Order now</a>
+              <a href="#" class="creat">Add to Cart</a>
             </div>
           </div>
         </div>
@@ -418,12 +428,11 @@
   
             <div class="inputBox">
               <input name="number" id="number" type="number" placeholder="number" required>
-              <input name="shoesname" id="shoesname" type="text" placeholder="shoes name" required>
             </div>
   
             <textarea placeholder="address" name="body" id="body" cols="30" rows="10" required></textarea>
   
-            <input type="submit" value="order now" class="creat" >
+            <input type="submit" value="Add to Cart" class="creat" >
           </form>
         </div>
       </section>
@@ -455,233 +464,7 @@
       <script src="script.js"></script>
     
   
-  <script>
-          function returnCommentSymbol(language = "javascript") {
-              const languageObject = {
-                  bat: "@REM",
-                  c: "//",
-                  csharp: "//",
-                  cpp: "//",
-                  closure: ";;",
-                  coffeescript: "#",
-                  dockercompose: "#",
-                  css: "/*DELIMITER*/",
-                  "cuda-cpp": "//",
-                  dart: "//",
-                  diff: "#",
-                  dockerfile: "#",
-                  fsharp: "//",
-                  "git-commit": "//",
-                  "git-rebase": "#",
-                  go: "//",
-                  groovy: "//",
-                  handlebars: "{{!--DELIMITER--}}",
-                  hlsl: "//",
-                  html: "<!--DELIMITER-->",
-                  ignore: "#",
-                  ini: ";",
-                  java: "//",
-                  javascript: "//",
-                  javascriptreact: "//",
-                  json: "//",
-                  jsonc: "//",
-                  julia: "#",
-                  latex: "%",
-                  less: "//",
-                  lua: "--",
-                  makefile: "#",
-                  markdown: "<!--DELIMITER-->",
-                  "objective-c": "//",
-                  "objective-cpp": "//",
-                  perl: "#",
-                  perl6: "#",
-                  php: "<!--DELIMITER-->",
-                  powershell: "#",
-                  properties: ";",
-                  jade: "//-",
-                  python: "#",
-                  r: "#",
-                  razor: "<!--DELIMITER-->",
-                  restructuredtext: "..",
-                  ruby: "#",
-                  rust: "//",
-                  scss: "//",
-                  shaderlab: "//",
-                  shellscript: "#",
-                  sql: "--",
-                  svg: "<!--DELIMITER-->",
-                  swift: "//",
-                  tex: "%",
-                  typescript: "//",
-                  typescriptreact: "//",
-                  vb: "'",
-                  xml: "<!--DELIMITER-->",
-                  xsl: "<!--DELIMITER-->",
-                  yaml: "#"
-              }
-              return languageObject[language].split("DELIMITER")
-          }
-          var savedChPos = 0
-          var returnedSuggestion = ''
-          let editor, doc, cursor, line, pos
-          pos = {line: 0, ch: 0}
-          var suggestionsStatus = false
-          var docLang = "python"
-          var suggestionDisplayed = false
-          var isReturningSuggestion = false
-          document.addEventListener("keydown", (event) => {
-          setTimeout(()=>{
-              editor = event.target.closest('.CodeMirror');
-              const codeEditor = editor.CodeMirror
-              if (editor){
-                  if(!editor.classList.contains("added-tab-function")){
-                      editor.classList.add("added-tab-function")
-                      codeEditor.removeKeyMap("Tab")
-                      codeEditor.setOption("extraKeys", {Tab: (cm)=>{
   
-                          if(returnedSuggestion){
-                              acceptTab(returnedSuggestion)
-                          }
-                          else{
-                              cm.execCommand("defaultTab")
-                          }
-                      }})
-                  }
-                  doc = editor.CodeMirror.getDoc()
-                  cursor = doc.getCursor()
-                  line = doc.getLine(cursor.line)
-                  pos = {line: cursor.line, ch: line.length}
-  
-                  if(cursor.ch > 0){
-                      savedChPos = cursor.ch
-                  }
-  
-                  const fileLang = doc.getMode().name
-                  docLang = fileLang
-                  const commentSymbol = returnCommentSymbol(fileLang)
-                  if (event.key == "?"){
-                      var lastLine = line
-                      lastLine = lastLine.slice(0, savedChPos - 1)
-  
-                      if(lastLine.trim().startsWith(commentSymbol[0])){
-                          lastLine += " "+fileLang
-                          lastLine = lastLine.split(commentSymbol[0])[1]
-                          window.postMessage({source: 'getQuery', payload: { data: lastLine } } )
-                          isReturningSuggestion = true
-                          displayGrey("\nBlackbox loading...")
-                      }
-                  }else if(event.key === "Enter" && suggestionsStatus && !isReturningSuggestion){
-                      var query = doc.getRange({ line: Math.max(0,cursor.line-10), ch: 0 }, { line: cursor.line, ch: line.length })
-                      window.postMessage({source: 'getSuggestion', payload: { data: query, language: docLang } } )
-                      displayGrey("Blackbox loading...")
-                  }else if(event.key === "ArrowRight" && returnedSuggestion){
-                      acceptTab(returnedSuggestion)
-                  }else if(event.key === "Enter" && isReturningSuggestion){
-                      displayGrey("\nBlackbox loading...")
-                  }else if(event.key === "Escape"){
-                      displayGrey("")
-                  }
-              }
-          }, 0)
-          })
-  
-          function acceptTab(text){
-          if (suggestionDisplayed){
-              displayGrey("")
-              doc.replaceRange(text, pos)
-              returnedSuggestion = ""
-              updateSuggestionStatus(false)
-          }
-          }
-          function acceptSuggestion(text){
-              displayGrey("")
-              doc.replaceRange(text, pos)
-              returnedSuggestion = ""
-              updateSuggestionStatus(false)
-          }
-          function displayGrey(text){
-              if(!text){
-                  document.querySelector(".blackbox-suggestion").remove()
-                  return
-              }
-              var el = document.querySelector(".blackbox-suggestion")
-              if(!el){
-                  el = document.createElement('span')
-                  el.classList.add("blackbox-suggestion")
-                  el.style = 'color:grey'
-                  el.innerText = text
-              }
-              else{
-                  el.innerText = text
-              }
-              
-              var lineIndex = pos.line;
-              editor.getElementsByClassName('CodeMirror-line')[lineIndex].appendChild(el)
-          }
-          function updateSuggestionStatus(s){
-              suggestionDisplayed = s
-              window.postMessage({source: 'updateSuggestionStatus', status: suggestionDisplayed, suggestion: returnedSuggestion})
-          }
-          window.addEventListener('message', (event)=>{
-          if (event.source !== window ) return
-          if (event.data.source == 'return'){
-              isReturningSuggestion = false
-              const formattedCode = formatCode(event.data.payload.data)
-              returnedSuggestion = formattedCode
-              displayGrey(formattedCode)
-              updateSuggestionStatus(true)
-          }
-          if(event.data.source == 'suggestReturn'){
-              returnedSuggestion = event.data.payload.data
-              displayGrey(event.data.payload.data)
-              updateSuggestionStatus(true)
-          }
-          if(event.data.source == 'suggestionsStatus'){
-              suggestionsStatus = event.data.payload.enabled
-          }
-          if(event.data.source == 'acceptSuggestion'){
-              
-              acceptSuggestion(event.data.suggestion)
-          }
-          })
-          document.addEventListener("keyup", function(){
-              returnedSuggestion = ""
-              updateSuggestionStatus(false)
-          })
-          function formatCode(data) {
-              if (Array.isArray(data)) {
-                  var finalCode = ""
-                  var pairs = []
-          
-                  const commentSymbol = returnCommentSymbol(docLang)
-                  data.forEach((codeArr, idx) => {
-                      const code = codeArr[0]
-                      var desc = codeArr[1]
-                      const descArr = desc.split("\n")
-                      var finalDesc = ""
-                      descArr.forEach((descLine, idx) => {
-                          const whiteSpace = descLine.search(/\S/)
-                          if (commentSymbol.length < 2 || idx === 0) {
-                              finalDesc += insert(descLine, whiteSpace, commentSymbol[0])
-                          }
-                          if (commentSymbol.length > 1 && idx === descArr.length - 1) {
-                              finalDesc = finalDesc + commentSymbol[1] + "\n"
-                          }
-                      })
-          
-                      finalCode += finalDesc + "\n\n" + code
-                      pairs.push(finalCode)
-                  })
-                  return "\n"+pairs.join("\n")
-              }
-          
-              return "\n"+data
-          }
-          
-          function insert(str, index, value) {
-              return str.substr(0, index) + value + str.substr(index)
-          }
-      </script>
     </body>
     <script src="app.js"></script>
     </html>

@@ -2,16 +2,19 @@
 
 const express = require("express");
 const app = express();
-const port = 5000;
+const port = 3000;
 const helmet = require("helmet");
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+const bcrypt = require("bcrypt");
 app.use(express.urlencoded({ extended: true }));
-const Article = require("./models/articleSchema");
+const Contact = require("./models/ContactSchema");
 const User = require("./models/UserSchema");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+
 
 app.use(cookieParser());
 app.use(
@@ -56,7 +59,7 @@ mongoose
   });
 
 
-app.use(helmet());
+  app.use(helmet());
 
 
   app.get("/", (req, res) => {
@@ -72,10 +75,10 @@ app.use(helmet());
     const { title, summary, number, shoesname, body } = req.body;
   
     // veri nesnesi oluşturma
-    const article = new Article({ title, summary, number, shoesname, body });
+    const contact = new Contact({ title, summary, number, shoesname, body });
   
     // veri nesnesinin veritabanına kaydedilmesi
-    article.save()
+    contact.save()
       .then(() => {
         res.redirect("/home");
       })
@@ -86,7 +89,7 @@ app.use(helmet());
   });
   
   app.get("/all-shoes", (req, res) => {
-    Article.find()
+    Contact.find()
       .then((articles) => {
         res.render("all-shoes", { articles });
       })
@@ -99,9 +102,7 @@ app.use(helmet());
   app.get("/user", (req, res) => {
     if (req.session.user) {
       res.render("user", { user: req.session.user });
-    } else {
-      res.redirect("/login");
-    }
+    } 
   });
   
   // Signup Route
@@ -111,15 +112,23 @@ app.use(helmet());
   
   app.post("/signup", (req, res) => {
     const { username, email, password } = req.body;
-    User.create({ username, email, password })
-      .then((user) => {
-        req.session.user = user;
-        res.render("user", { user });
-      })
-      .catch((err) => {
+  
+    bcrypt.hash(password, 10, (err, hash) => {
+      if (err) {
         console.error(err);
-        res.send("Kullanıcı kaydetme sırasında hata oluştu.");
-      });
+        res.send("Parola şifrelenirken hata oluştu.");
+      } else {
+        User.create({ username, email, password: hash })
+          .then((user) => {
+            req.session.user = user;
+            res.redirect("/user");
+          })
+          .catch((err) => {
+            console.error(err);
+            res.send("Kullanıcı kaydetme sırasında hata oluştu.");
+          });
+      }
+    });
   });
   
   // Login Route
@@ -131,16 +140,23 @@ app.use(helmet());
   app.post("/login", (req, res) => {
     const { email, password } = req.body;
     User.findOne({ email, password })
-    .then((user) => {
-    if (user) {
-    req.session.user = user;
-    res.render("user", { user });
-    } else {
-    res.send("Email veya şifre yanlış.");
-    }
-    })
-    .catch((err) => {
-    console.error(err);
-    res.send("Giriş sırasında hata oluştu.");
-    });
-    });
+      .then((user) => {
+        if (user) {
+          req.session.user = user;
+          res.redirect("/user");
+        } else {
+          res.send("Email veya şifre yanlış.");
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.send("Giriş sırasında hata oluştu.");
+      });
+  });
+  
+
+    app.get("/logout", (req, res) => {
+      req.session.destroy();
+      res.redirect("/login");
+      });
+      

@@ -11,13 +11,14 @@
     "mongodb": "^4.13.0",
     "mongoose": "^6.9.0",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "sweetalert2": "^11.7.1"
   },
   "scripts": {
     "start": "node app.js",
     "watch": "nodemon --ext js,ejs --ignore public"
   },
-  "name": "articles-website-lesson13.2",
+  "name": "ammmars-shoes",
   "version": "1.0.0",
   "main": "app.js",
   "author": "",
