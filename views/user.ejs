@@ -24,7 +24,7 @@
   <meta name="twitter:image" content="https://www.example.com/images/logo.png">
   </head>
   
-  
+    
   
     <body>
       <!-- header section starts  -->
@@ -50,14 +50,13 @@
             <button class="dropdown-button">
                 <a href="#" class="login1"><i class="fas fa-shopping-basket"></i> My basket</a>
             </button>
-            <div class="dropdown-content">
-              <a href="#">Username:  <%= user.username %></a>
-              <a href="#">Email:  <%= user.email %></a>
-              <a href="/logout">Sign out</a>
+            <div class="dropdown-content" id="cart-items">
             </div>
+            
           </div>   
          
-        
+
+                
           <div class="dropdown">
             <button class="dropdown-button">
                 <a href="#" class="login1"><i class="fas fa-user"></i>  <%= user.username %></a>
@@ -413,7 +412,7 @@
       <!-- order section starts  -->
   
       <section class="order" id="order">
-        <h1 class="heading"><span>order</span> now</h1>
+        <h1 class="heading"><span>Contact</span> Us</h1>
   
         <div class="row">
           <div class="image">
@@ -432,7 +431,7 @@
   
             <textarea placeholder="address" name="body" id="body" cols="30" rows="10" required></textarea>
   
-            <input type="submit" value="Add to Cart" class="creat" >
+            <input type="submit" value="Send" class="creat" >
           </form>
         </div>
       </section>
@@ -454,17 +453,8 @@
           created by <span> Ammar ALibrahim </span> | all rights reserved!
         </h1>
       </section>
-  
-      <!-- scroll top button  -->
       <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
-  
-      <!-- loader  -->
- 
-      <!-- custom js file link  -->
       <script src="script.js"></script>
-    
-  
-  
     </body>
     <script src="app.js"></script>
     </html>

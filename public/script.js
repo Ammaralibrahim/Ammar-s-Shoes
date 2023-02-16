@@ -25,6 +25,53 @@ window.onscroll = () =>{
 }
 
 
+// Get all the "Add to Cart" buttons
+const addButtons = document.querySelectorAll('.creat');
+
+// Get the cart items container
+const cartItems = document.getElementById('cart-items');
+
+// Add an event listener to each button
+addButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Get the item details
+    const item = button.parentNode;
+    const itemName = item.querySelector('h3').innerText;
+    const itemPrice = item.querySelector('.price').innerText;
+    
+    // Create a new item element
+    const newItem = document.createElement('div');
+    newItem.classList.add('cart-item');
+    newItem.innerHTML = `
+      <div class="cart-item-details">
+        <span class="cart-item-name">${itemName}</span>
+        <span class="cart-item-price">${itemPrice}</span>
+      </div>
+      <button class="remove-button">Remove</button>
+    `;
+    
+    // Add the new item to the cart items container
+    cartItems.appendChild(newItem);
+    
+    // Show the dropdown content
+    document.querySelector('.dropdown-content').style.display = 'block';
+  });
+});
+
+// Add an event listener to the "Remove" buttons
+cartItems.addEventListener('click', event => {
+  if (event.target.classList.contains('remove-button')) {
+    event.target.parentNode.remove();
+  }
+  
+  // Hide the dropdown content if there are no items left
+  if (cartItems.children.length === 0) {
+    document.querySelector('.dropdown-content').style.display = 'none';
+  }
+});
+
+
+
 
 
 
