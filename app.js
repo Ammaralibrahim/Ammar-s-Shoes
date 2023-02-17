@@ -15,7 +15,6 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 
-
 app.use(cookieParser());
 app.use(
   session({
@@ -25,7 +24,6 @@ app.use(
     cookie: { secure: false },
   })
 );
-
 
 // for auto refresh
 const path = require("path");
@@ -58,105 +56,102 @@ mongoose
     console.log(err);
   });
 
+app.use(helmet());
 
-  app.use(helmet());
+app.get("/", (req, res) => {
+  res.redirect("/home");
+});
 
+app.get("/home", (req, res) => {
+  res.render("home");
+});
 
-  app.get("/", (req, res) => {
-    res.redirect("/home");
-  });
-  
-  app.get("/home", (req, res) => {
-    res.render("home");
-  });
-  
-  app.post("/home", (req, res) => {
-    // form verilerinin alınması
-    const { title, summary, number, shoesname, body } = req.body;
-  
-    // veri nesnesi oluşturma
-    const contact = new Contact({ title, summary, number, shoesname, body });
-  
-    // veri nesnesinin veritabanına kaydedilmesi
-    contact.save()
-      .then(() => {
-        res.redirect("/home");
-      })
-      .catch((err) => {
-        console.error(err);
-        res.send("Veritabanına kaydetme sırasında hata oluştu.");
-      });
-  });
-  
-  app.get("/all-shoes", (req, res) => {
-    Contact.find()
-      .then((articles) => {
-        res.render("all-shoes", { articles });
-      })
-      .catch((err) => { 
-        console.error(err);
-        res.send("Verileri çekme sırasında hata oluştu.");
-      });
-  });
-  
-  app.get("/user", (req, res) => {
-    if (req.session.user) {
-      res.render("user", { user: req.session.user });
-    } 
-  });
-  
-  // Signup Route
-  app.get("/signup", (req, res) => {
-    res.render("signup");
-  });
-  
-  app.post("/signup", (req, res) => {
-    const { username, email, password } = req.body;
-  
-    bcrypt.hash(password, 10, (err, hash) => {
-      if (err) {
-        console.error(err);
-        res.send("Parola şifrelenirken hata oluştu.");
-      } else {
-        User.create({ username, email, password: hash })
-          .then((user) => {
-            req.session.user = user;
-            res.redirect("/user");
-          })
-          .catch((err) => {
-            console.error(err);
-            res.send("Kullanıcı kaydetme sırasında hata oluştu.");
-          });
-      }
+app.post("/home", (req, res) => {
+  // form verilerinin alınması
+  const { title, summary, number, shoesname, body } = req.body;
+
+  // veri nesnesi oluşturma
+  const contact = new Contact({ title, summary, number, shoesname, body });
+
+  // veri nesnesinin veritabanına kaydedilmesi
+  contact
+    .save()
+    .then(() => {
+      res.redirect("/home");
+    })
+    .catch((err) => {
+      console.error(err);
+      res.send("Veritabanına kaydetme sırasında hata oluştu.");
     });
-  });
-  
-  // Login Route
-  app.get("/login", (req, res) => {
-    res.render("login");
-  });
-  
-  // setting the user object in session after successful login
-  app.post("/login", (req, res) => {
-    const { email, password } = req.body;
-    User.findOne({ email, password })
-      .then((user) => {
-        if (user) {
+});
+
+app.get("/all-shoes", (req, res) => {
+  Contact.find()
+    .then((articles) => {
+      res.render("all-shoes", { articles });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.send("Verileri çekme sırasında hata oluştu.");
+    });
+});
+
+app.get("/user", (req, res) => {
+  if (req.session.user) {
+    res.render("user", { user: req.session.user });
+  }
+});
+
+// Signup Route
+app.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+app.post("/signup", (req, res) => {
+  const { username, email, password } = req.body;
+
+  bcrypt.hash(password, 10, (err, hash) => {
+    if (err) {
+      console.error(err);
+      res.send("Parola şifrelenirken hata oluştu.");
+    } else {
+      User.create({ username, email, password: hash })
+        .then((user) => {
           req.session.user = user;
           res.redirect("/user");
-        } else {
-          res.send("Email veya şifre yanlış.");
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.send("Giriş sırasında hata oluştu.");
-      });
+        })
+        .catch((err) => {
+          console.error(err);
+          res.send("Kullanıcı kaydetme sırasında hata oluştu.");
+        });
+    }
   });
-  
+});
 
-    app.get("/logout", (req, res) => {
-      req.session.destroy();
-      res.redirect("/login");
-      });
-      
+// Login Route
+app.get("/login", (req, res) => {
+  res.render("login");
+});
+
+// setting the user object in session after successful login
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+  User.findOne({ email, password })
+    .then((user) => {
+      if (user) {
+        req.session.user = user;
+        res.redirect("/user");
+      } else {
+        res.send("Email veya şifre yanlış.");
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.send("Giriş sırasında hata oluştu.");
+    });
+});
+
+app.get("/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/login");
+});
