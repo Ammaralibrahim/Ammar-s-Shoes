@@ -1,22 +1,28 @@
-<html lang="en"><head>
+<html lang="en">
+
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ammar's shoes</title>
 
   <!-- font awesome cdn link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-  
+
+
 
   <!-- custom css file link  -->
   <link rel="stylesheet" href="style.css">
-<style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style></head>
+  <style type="text/css">
+    @font-face {
+      font-family: Roboto;
+      src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf");
+    }
+  </style>
+</head>
+
 <body>
   <!-- header section starts  -->
- 
+
   <header>
     <a href="#" class="logo"><img src="/images/logo.png" alt=""></i>Ammar's <span>shoes</span></a>
 
@@ -24,7 +30,7 @@
 
     <nav class="navbar">
       <a href="/home">Home</a>
-      <a href="/all-shoes">All shoes</a>
+      <a href="#">All shoes</a>
       <a href="/user#speciality">Speciality</a>
       <a href="/user#popular">Popular</a>
       <a href="/user#Man">Man</a>
@@ -34,108 +40,250 @@
   </header>
 
 
-<section class="popular" id="popular">
-<center>
-<div class="inputBoxs">
-  <input class="filter-input" name="title" id="seacrh-box" type="text" placeholder="name">
-</div>
-</center>
-
-
-
-<div class="box-container">
-  <div class="box">
-    <span class="price">$22</span>
-    <img src="images/shoes6.webp" alt="">
-    <h3>Nike</h3>
-    <div class="stars">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="far fa-star"></i>
-    </div>
-    <a href="#" class="creat">Add to Cart</a>
-  </div>
-  <div class="box">
-    <span class="price">$26</span>
-    <img src="images/shoes7.jpg" alt="">
-    <h3> Adidas</h3>
-    <div class="stars">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="far fa-star"></i>
-    </div>
-    <a href="#" class="creat">Add to Cart</a>
-  </div>
-  <div class="box">
-    <span class="price">$20 </span>
-    <img src="images/shoes8.webp" alt="">
-    <h3> Puma</h3>
-    <div class="stars">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="far fa-star"></i>
-    </div>
-    <a href="#" class="creat">Add to Cart</a>
-  </div>
-  <div class="box">
-    <span class="price">$20 </span>
-    <img src="images/shoes9.webp" alt="">
-    <h3> Adidas</h3>
-    <div class="stars">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="far fa-star"></i>
-    </div>
-    <a href="#" class="creat">Add to Cart</a>
-  </div>
-  <div class="box">
-    <span class="price">$20</span>
-    <img src="images/shoes10.webp" alt="">
-    <h3>Kinetix</h3>
-    <div class="stars">
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="fas fa-star"></i>
-      <i class="far fa-star"></i>
-    </div>
-    <a href="#" class="creat">Add to Cart</a>
-  </div>
-  
-</div>
-
-<!-- The modal -->
-
-
+  <section class="popular" id="popular">
+    <center>
+      <div class="inputBoxs">
+        <input class="filter-input" name="title" id="search-box" type="text" placeholder="Enter Shoes Name">
       </div>
-      
-      
+    </center>
+
+
+
+    <div class="box-container">
+      <div class="box">
+        <span class="price">$22</span>
+        <img src="images/shoes13.webp" alt="shoes1.png">
+        <h3>Nike</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$26</span>
+        <img src="images/shoes14.webp" alt="shoes2.png">
+        <h3> Adidas</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$20 </span>
+        <img src="images/shoes15.webp" alt="shoes3.png">
+        <h3> Puma</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$20 </span>
+        <img src="images/shoes4.webp" alt="shoes4.webp">
+        <h3> Adidas</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$20</span>
+        <img src="images/shoes5.webp" alt="shoes5.webp">
+        <h3>Kinetix</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+
+    </div>
+
+    <br><br>
+
+    <div class="box-container">
+      <div class="box">
+        <span class="price">$22</span>
+        <img src="images/shoes6.webp" alt="shoes6.webp">
+        <h3>Nike</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$26</span>
+        <img src="images/shoes7.jpg" alt="shoes7.jpg">
+        <h3> Adidas</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$20 </span>
+        <img src="images/shoes8.webp" alt="shoes8.webp">
+        <h3> Puma</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$20 </span>
+        <img src="images/shoes9.webp" alt="shoes9.webp">
+        <h3> Adidas</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$20</span>
+        <img src="images/shoes10.webp" alt="shoes10.webp">
+        <h3>Kinetix</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+
+    </div>
+
+
+<br><br>
+
+    <div class="box-container">
+      <div class="box">
+        <span class="price">$22</span>
+        <img src="images/shoes3.png" alt="shoes12.webp">
+        <h3>Nike</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$26</span>
+        <img src="images/shoes2.png" alt="shoes13.webp">
+        <h3> Adidas</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$20 </span>
+        <img src="images/shoes3.png" alt="shoes13.webp">
+        <h3> Puma</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$20 </span>
+        <img src="images/shoes15.webp" alt="shoes15.webp">
+        <h3> Adidas</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+      <div class="box">
+        <span class="price">$20</span>
+        <img src="images/shoes16.webp" alt="shoes16.webp">
+        <h3>Kinetix</h3>
+        <div class="stars">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="far fa-star"></i>
+        </div>
+        <a href="#" class="creat">Add to Cart</a>
+      </div>
+
+    </div>
+
+
+
+    </div>
+
+
     </div>
   </section>
-  
+
   <script>
     // Select the input element and cards container
     const input = document.querySelector('input');
     const cardContainer = document.querySelector('.box-container');
-  
+
     // Add event listener to input element
     input.addEventListener('input', filterCards);
-  
+
     function filterCards() {
       // Get the input value
       const inputValue = input.value.toLowerCase();
-  
+
       // Get all the cards
       const cards = cardContainer.querySelectorAll('.box');
-  
+
       // Loop through the cards and hide the ones that don't match the input value
       cards.forEach(card => {
         const cardName = card.querySelector('h3').textContent.toLowerCase();
@@ -147,6 +295,8 @@
       });
     }
   </script>
-  
+
   <!-- custom js file link  -->
-</body></html>
+</body>
+<script src="script.js"></script>
+</html>

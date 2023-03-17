@@ -32,7 +32,8 @@
 
 
 <body>
-  <!-- header section starts  -->
+
+
 
   <header>
     <a href="#" class="logo"><img src="/images/logo.png" alt="">Ammar's <span>shoes</span></a>
@@ -46,7 +47,7 @@
       <a href="#popular">Popular</a>
       <a href="#Man">Man</a>
       <a href="#Women">Women</a>
-      <a href="#order">Order</a>
+      <a href="#order">Contact us</a>
 
 
 
@@ -68,13 +69,14 @@
             <%= user.username %>
           </a>
         </button>
-        <div class="dropdown-content">
-          <a href="#">Username: <%= user.username %></a>
+        <div class="dropdown-content" style="right: -100px;">
+          <a href="#"> <i class="fas fa-user"></i> Username: <%= user.username %></a>
           <a href="#">Email: <%= user.email %></a>
           <a href="/logout">Sign out</a>
         </div>
       </div>
   </header>
+
 
 
 
@@ -188,7 +190,7 @@
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
-          <i class="far fa-star"></i>
+          <i class="fas fa-star"></i>
         </div>
         <a href="#" class="creat">Add to Cart</a>
       </div>
@@ -434,7 +436,7 @@
           <input name="number" id="number" type="number" placeholder="number" required>
         </div>
 
-        <textarea placeholder="address" name="body" id="body" cols="30" rows="10" required></textarea>
+        <textarea placeholder="Summary" name="body" id="body" cols="30" rows="10" required></textarea>
 
         <input type="submit" value="Send" class="creat">
       </form>
@@ -459,8 +461,10 @@
     </h1>
   </section>
   <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
-  <script src="script.js"></script>
+
 </body>
 <script src="app.js"></script>
+<script src="script.js"></script>
+<script src="mybasket.js"></script>
 
 </html>
