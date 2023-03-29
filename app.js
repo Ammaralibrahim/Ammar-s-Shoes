@@ -1,157 +1,79 @@
-//  to controll ur website
-
 const express = require("express");
 const app = express();
 const port = 3000;
-const helmet = require("helmet");
 
+
+
+// Set the view engine to EJS and serve static files from the public folder
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-const bcrypt = require("bcrypt");
+
+// Middleware for parsing URL-encoded request bodies
 app.use(express.urlencoded({ extended: true }));
-const Contact = require("./models/ContactSchema");
-const User = require("./models/UserSchema");
-const mongoose = require("mongoose");
+
+// Middleware for managing user sessions using cookies and express-session
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-
 app.use(cookieParser());
 app.use(
   session({
     secret: "secret key",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false },
+    cookie: { secure: true, httpOnly: true, sameSite: "strict" },
   })
 );
 
-// for auto refresh
+
+
+// Require Mongoose and connect to the database
+const mongoose = require("mongoose");
+mongoose
+  .connect(
+    "mongodb+srv://ammar:alibrahim@cluster0.51i7rk6.mongodb.net/?retryWrites=true&w=majority",
+    { useNewUrlParser: true, useUnifiedTopology: true }
+  )
+  .then(() => {
+    app.listen(process.env.PORT || port, () => {
+      console.log(`CDI app listening at http://localhost:${port}`);
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+// For auto-refresh, use livereload to watch for changes and refresh the page
 const path = require("path");
 const livereload = require("livereload");
 const liveReloadServer = livereload.createServer();
 liveReloadServer.watch(path.join(__dirname, "public"));
-
 const connectLivereload = require("connect-livereload");
 app.use(connectLivereload());
-
 liveReloadServer.server.once("connection", () => {
   setTimeout(() => {
     liveReloadServer.refresh("/");
   }, 100);
 });
 
-// mongoose
-
-mongoose
-  .connect(
-    "mongodb+srv://ammar:alibrahim@cluster0.51i7rk6.mongodb.net/?retryWrites=true&w=majority"
-  )
-  .then((result) => {
-    app.listen(process.env.PORT || port, () => {
-      console.log(`Example app listening at http://localhost:${port}`);
-    });
-  })
-
-  .catch((err) => {
-    console.log(err);
-  });
-
-app.use(helmet());
-
+// Handle the root URL by redirecting to the home page
 app.get("/", (req, res) => {
   res.redirect("/home");
 });
 
+// home page route - render the home view
 app.get("/home", (req, res) => {
   res.render("home");
 });
 
-app.post("/home", (req, res) => {
-  // form verilerinin alınması
-  const { title, summary, number, shoesname, body } = req.body;
 
-  // veri nesnesi oluşturma
-  const contact = new Contact({ title, summary, number, shoesname, body });
-
-  // veri nesnesinin veritabanına kaydedilmesi
-  contact
-    .save()
-    .then(() => {
-      res.redirect("/home");
-    })
-    .catch((err) => {
-      console.error(err);
-      res.send("Veritabanına kaydetme sırasında hata oluştu.");
-    });
+app.get("/works", (req, res) => {
+  res.render("works");
 });
 
-app.get("/all-shoes", (req, res) => {
-  Contact.find()
-    .then((articles) => {
-      res.render("all-shoes", { articles });
-    })
-    .catch((err) => {
-      console.error(err);
-      res.send("Verileri çekme sırasında hata oluştu.");
-    });
+app.get("/contact-us", (req, res) => {
+  res.render("contact-us");
 });
 
-app.get("/user", (req, res) => {
-  if (req.session.user) {
-    res.render("user", { user: req.session.user });
-  }
-});
-
-// Signup Route
-app.get("/signup", (req, res) => {
-  res.render("signup");
-});
-
-app.post("/signup", (req, res) => {
-  const { username, email, password } = req.body;
-
-  bcrypt.hash(password, 10, (err, hash) => {
-    if (err) {
-      console.error(err);
-      res.send("Parola şifrelenirken hata oluştu.");
-    } else {
-      User.create({ username, email, password: hash })
-        .then((user) => {
-          req.session.user = user;
-          res.redirect("/user");
-        })
-        .catch((err) => {
-          console.error(err);
-          res.send("Kullanıcı kaydetme sırasında hata oluştu.");
-        });
-    }
-  });
-});
-
-// Login Route
-app.get("/login", (req, res) => {
-  res.render("login");
-});
-
-// setting the user object in session after successful login
-app.post("/login", (req, res) => {
-  const { email, password } = req.body;
-  User.findOne({ email, password })
-    .then((user) => {
-      if (user) {
-        req.session.user = user;
-        res.redirect("/user");
-      } else {
-        res.send("Email veya şifre yanlış.");
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.send("Giriş sırasında hata oluştu.");
-    });
-});
-
-app.get("/logout", (req, res) => {
-  req.session.destroy();
-  res.redirect("/login");
+app.get("/about-us", (req, res) => {
+  res.render("about-us");
 });

@@ -199,6 +199,69 @@ ul{
   background-color: #ffffff;
 }
 
+
+.timeline {
+  float: left;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin: 20px 80px;
+  text-align: left;
+}
+
+.timeline-marker {
+  display: flex;
+  top: 20px; /* veya istediğiniz bir değer */
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #000000;
+  border-radius: 50%;
+
+}
+
+.marker-number {
+  font-size: 16px;
+  color: #fff;
+}
+
+.timeline-content {
+
+  margin-top: 10px;
+  max-width: 30rem;
+  max-height:40rem ;
+}
+.paragraf{
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+  .timeline {
+    margin-left: 40px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-x: visible;
+  }
+  .timeline-item {
+    margin: 100px 0;
+  }
+}
+
+
 /*responsive*/
 @media(max-width: 767px){
   .footer-col{
@@ -218,133 +281,6 @@ ul{
     width: 40%;
     margin-left: 20px;
 }
-}
-
-
-
-
-
-
-
-.title {
-    display: flex;
-    justify-content: center;
-    color: black;
-    font-size: 2.2em;
-    font-weight: 800;
-    margin-bottom: 30px;
-}
-
-.content {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.card {
-    background-color: #fff;
-    width: 40.25em;
-    box-shadow: 0 5px 25px rgba(1 1 1 / 15%);
-    border-radius: 10px;
-    padding: 25px;
-    margin: 15px;
-    transition: 0.7s ease;
-}
-
-.card:hover {
-    transform: scale(1.1);
-}
-
-.card .icon {
-    color: black;
-    font-size: 8em;
-    text-align: center;
-}
-
-.info {
-    text-align: center;
-}
-
-.info h3{
-    color: black;
-    font-size: 1.2em;
-    font-weight: 700;
-    margin: 10px;
-}
-
-.projects {
-    background-color: #ffffff;
-    padding: 0;
-    margin: 0;
-}
-
-.projects .content{
-    margin-top: 30px;
-}
-
-.project-card {
-    background-color: #f1f2f2;
-    border: 1px solid #fff;
-    height: 39.5em;
-    overflow: hidden;
-    margin: 20px;
-    transition: 0.3s ease;
-}
-.project-image{
-  transition: 0.3s ease;
-}
-
-
-
-.project-card:hover .project-image {
-transform: scale(1.1); }
-
-.project-image img{
-    width: 100%
-}
-
-.project-info {
-    padding: 1em;
-    margin-top: 30px;
-}
-.project-info a{
-font-size: 13px;
-color: #000;
-}
-.project-category {
-    font-size: 0.8em;
-    color: #000;
-    margin-bottom: 30px;
-}
-.project-category2 {
-    font-size: 0.8em;
-    color: #000;
-    margin-bottom: 30px;
-}
-
-
-.project-title {
-    display: flex;
-    justify-content: space-between;
-    text-transform: uppercase;
-    font-weight: 800;
-    margin-top: 40px;
-    margin-bottom: 30px;
-}
-
-
-
-.contact .icon{
-    font-size: 4.5em;
-}
-
-.contact .info h3 {
-    color: #000;
-}
-
-.contact .info p {
-    font-size: 1.5em;
 }
 
 
