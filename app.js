@@ -30,7 +30,7 @@ app.use(
 const mongoose = require("mongoose");
 mongoose
   .connect(
-    "mongodb+srv://ammar:alibrahim@cluster0.51i7rk6.mongodb.net/?retryWrites=true&w=majority",
+    "",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(() => {
